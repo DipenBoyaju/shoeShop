@@ -13,6 +13,8 @@ mongoose.connect('mongodb+srv://dawnuptech:SW4pSVS5tF0Xp0Gn@cluster0.veawijj.mon
   console.log(err);
 })
 
+app.use(express.json());
+
 
 app.get('/', (req, res) => {
   return res.status(200).json({

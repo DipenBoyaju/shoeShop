@@ -38,7 +38,7 @@ const productSchema = new mongoose.Schema({
     type: [Number],
     required: true,
   },
-  for: {
+  catFor: {
     type: String,
     required: true,
   },

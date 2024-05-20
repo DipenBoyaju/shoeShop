@@ -42,3 +42,46 @@ export const getProductById = async (req, res) => {
     })
   }
 }
+
+
+export const addProduct = async (req, res) => {
+  const {
+    id,
+    name,
+    category,
+    brand,
+    details,
+    price,
+    rating,
+    availableColors,
+    availableSizes,
+    catFor,
+    imageUrl,
+  } = req.body;
+
+  try {
+    const data = await Product.create({
+      id,
+      name,
+      category,
+      brand,
+      details,
+      price,
+      rating,
+      availableColors,
+      availableSizes,
+      catFor,
+      imageUrl,
+    })
+    return res.status(200).json({
+      status: 'success',
+      messgae: 'product added successfully'
+    })
+
+  } catch (error) {
+    return res.status(400).json({
+      status: 'error',
+      message: `${error}`
+    })
+  }
+}
