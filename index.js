@@ -1,6 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRouter.js'
+import cors from 'cors'
 
 const port = 5000;
 const app = express();
@@ -13,6 +15,7 @@ mongoose.connect('mongodb+srv://dawnuptech:SW4pSVS5tF0Xp0Gn@cluster0.veawijj.mon
   console.log(err);
 })
 
+app.use(cors());
 app.use(express.json());
 
 
@@ -22,7 +25,9 @@ app.get('/', (req, res) => {
   })
 })
 
+
 app.use('/products', productRoutes)
+app.use('/users', userRoutes)
 
 
 app.use((req, res) => {
